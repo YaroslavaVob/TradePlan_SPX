@@ -239,6 +239,7 @@ The model outputs continuous values that can later be translated into practical 
 - Weak / Normal / Strong / Extreme Bearish.
 
 <img src="analysis_plots/tradeplan_backtest_bias.png" width="460" alt="Bias direction validation" /> 
+
 *Figure 3 — Bias direction validation. Green bars show sessions where predicted bias matched realized fact bias; red bars show mismatches.*
 
 ### Target engineering
