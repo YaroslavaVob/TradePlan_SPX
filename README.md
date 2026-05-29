@@ -713,7 +713,7 @@ The validation focuses on:
 
 *Figure 17 — Signed prediction error distributions. Move and chop errors currently skew conservative, which is preferable to systematically understating risk at this stage.*
 
-<img src="report_plots/tradeplan_report_regime_transition_timeline.png" width="450" alt="Regime transition timeline" /> 
+<img src="report_plots/tradeplan_report_regime_transition_timeline.png" width="650" alt="Regime transition timeline" /> 
 
 *Figure 18 — Regime transition timeline. This shows how bias, chop, and volatility regimes changed across sessions — the same state variables the framework attempts to forecast each morning.*
 
