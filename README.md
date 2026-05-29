@@ -93,7 +93,7 @@ That shift changed the entire architecture of the project.
 
 At a high level, TradePlan_SPX behaves as a sequential forecasting pipeline.
 <div align="center">
-        <img src="report_plots/tradeplan_report_pipeline.png" width="500" alt="Production pipeline diagram" />
+        <img src="report_plots/tradeplan_report_pipeline.png" width="700" alt="Production pipeline diagram" />
 </div>
 
 *Figure 1 — Full production pipeline. Data enters through IBKR (`spx_data_loader.py`), passes through opening, bias, chop, levels, and morning plan assembly (`build_TradePlan.py`), then branches into intraday recalibration (`update_TradePlan.py`). `manage.py` coordinates daily, full, and update modes.*
@@ -238,7 +238,7 @@ The model outputs continuous values that can later be translated into practical 
 - Range Day,
 - Weak / Normal / Strong / Extreme Bearish.
 
-<img src="analysis_plots/tradeplan_backtest_bias.png" width="460" alt="Bias direction validation" /> 
+<img src="analysis_plots/tradeplan_backtest_bias.png" width="500" alt="Bias direction validation" /> 
 
 *Figure 3 — Bias direction validation. Green bars show sessions where predicted bias matched realized fact bias; red bars show mismatches.*
 
@@ -287,7 +287,8 @@ That made intuitive sense. VWAP is often a central reference point in intraday m
 *Figure 4 — Bias model feature importance. Bar length shows absolute Ridge coefficient size on scaled features after pruning. VWAP distance, IV spreads, and chop-related gaps rank highly, which suggests that the model learns relative market-state dislocations rather than absolute price levels.*
 
 
-<img src="report_plots/tradeplan_report_bias_strength_vs_move.png" width="350" alt="Bias strength vs realized move" />
+<img src="report_plots/tradeplan_report_bias_strength_vs_move.png" width="450" alt="Bias strength vs realized move" />
+
 *Figure 5 — Bias strength vs realized session body. Stronger predicted bias tends to associate with larger directional body movement, but rotational sessions still create noise. This is exactly why strength is modeled separately from direction.*
 
 ### Four-stage session logic
@@ -386,7 +387,8 @@ This is where the project started feeling less like a trading script and more li
 
 *Figure 6 — Chop model feature importance. The strongest predictors describe premarket rotational behavior: chop gaps, VWAP stickiness, failed-breakout structure, and IV/RV dislocation. Chop is treated as a structural regime variable, not just a volatility reading.*
 
-<img src="report_plots/tradeplan_report_regime_map_scatter.png" width="350" alt="Regime map: predicted chop vs realized move" />
+<img src="report_plots/tradeplan_report_regime_map_scatter.png" width="450" alt="Regime map: predicted chop vs realized move" />
+
 *Figure 7 — Regime map across backtest sessions. Predicted chop interacts with realized range and directional group, which is why chop and bias are modeled together before scenario construction.*
 
 ## Similarity Pool Engine
@@ -712,6 +714,7 @@ The validation focuses on:
 *Figure 17 — Signed prediction error distributions. Move and chop errors currently skew conservative, which is preferable to systematically understating risk at this stage.*
 
 <img src="report_plots/tradeplan_report_regime_transition_timeline.png" width="450" alt="Regime transition timeline" /> 
+
 *Figure 18 — Regime transition timeline. This shows how bias, chop, and volatility regimes changed across sessions — the same state variables the framework attempts to forecast each morning.*
 
 ## Interpretation
